@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## http://stackoverflow.com/questions/2972765/linux-script-that-monitors-file-changes-within-folders-like-autospec-does
+
 sha=0
 previous_sha=0
 
