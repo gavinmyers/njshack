@@ -14,7 +14,7 @@ if !level? or !level.create? then throw new Error "cannot find level"
 
 map = require("../src/map.coffee")
 if !map? or !map.create? then throw new Error "cannot find map"
-
+console.log "test"
 map.create()
 
 process.exit()
