@@ -26,6 +26,12 @@ if map.create().rooms < 1
 if map.create({rooms:4}).rooms != 4
   throw new Error "override rooms not set"
 
+if map.create().map[0][0] != 1
+  throw new Error "default map not set"
+
+if map.create({map:[[0]]}).map[0][0] != 0
+  throw new Error "override map not set"
+
 m = map.create()
 console.log m
 
