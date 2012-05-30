@@ -42,7 +42,5 @@ for xo,xi in m.map
     l = l + yo
 console.log l
 
-#console.log m
-
 process.exit()
 
