@@ -23,7 +23,7 @@ if map.create({h:80}).h != 80
 if map.create().rooms < 1
   throw new Error "default rooms not set" 
 
-if map.create({rooms:4}).rooms != 4
+if map.create({rooms:400}).rooms != 400
   throw new Error "override rooms not set"
 
 if map.create().map[0][0] != 1
@@ -32,8 +32,17 @@ if map.create().map[0][0] != 1
 if map.create({map:[[0]]}).map[0][0] != 0
   throw new Error "override map not set"
 
-m = map.create()
-console.log m
+m = map.create({w:30,h:50})
+
+l = ""
+for xo,xi in m.map
+  console.log l
+  l = ""
+  for yo,yi in xo
+    l = l + yo
+console.log l
+
+#console.log m
 
 process.exit()
 
