@@ -7,10 +7,8 @@ exports.create = (options = {}) ->
   for x in [0..options.w]
     m[x] = []
     for y in [0..options.h]
-      m[x][y] = if x == 0 or 
-                   y == 0 or 
-                   x == options.w or 
-                   y == options.h 
+      m[x][y] = if x in [0,options.w] or 
+                   y in [0,options.h] 
                    then 1 else 0  
   options.map ?= m
   return options
