@@ -39,7 +39,13 @@ for xo,xi in m.map
   console.log l
   l = ""
   for yo,yi in xo
-    l = l + if yo == 0 then "." else "X"
+    switch yo
+      when 1
+        l += "-"
+      when 0
+        l += "#"
+      when 2
+        l += "."
 console.log l
 
 
