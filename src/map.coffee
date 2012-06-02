@@ -13,12 +13,10 @@ exports.create = (options = {}) ->
                    y in [0,options.h]
                    then 0 else 1
   for i in [0..options.rooms]
-    w = r options.w / maxRooms
-    h = r options.h / maxRooms
-    x = r options.w
-    if x + w > options.w then w = options.w - x
-    if y + h > options.h then h = options.h - y
-    y = r options.h
+    w = r options.w / maxRooms, 3
+    h = r options.h / maxRooms, 3
+    x = r options.w - 4
+    y = r options.h - 4
     for j in [0..w]
       for k in [0..h]
         if m[j+x] and m[j+x][y+k] then m[j+x][y+k] = 2

@@ -44,7 +44,7 @@ for xo,xi in m.map
         l += "*"
       when 1
         l += "."
-      when 2 
+      when 2
         l += "#"
 console.log l
 
