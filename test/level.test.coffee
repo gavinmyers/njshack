@@ -32,21 +32,22 @@ if map.create().map[0][0] != 0
 if map.create({map:[[0]]}).map[0][0] != 0
   throw new Error "override map not set"
 
-m = map.create({w:30,h:50})
-
-l = ""
-for xo,xi in m.map
-  console.log l
+for i in [0..100]
+  m = map.create({w:30,h:50})
+  #rotate monitor 90d
   l = ""
-  for yo,yi in xo
-    switch yo
-      when 0
-        l += "*"
-      when 1
-        l += "."
-      when 2
-        l += "#"
-console.log l
+  for xo,xi in m.map
+    console.log l
+    l = ""
+    for yo,yi in xo
+      switch yo
+        when 0
+          l += "*"
+        when 1
+          l += "."
+        when 2
+          l += "#"
+  console.log l
 
 
 process.exit()
