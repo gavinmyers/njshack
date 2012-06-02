@@ -12,6 +12,7 @@ exports.create = (options = {}) ->
       m[x][y] = if x in [0,options.w] or
                    y in [0,options.h]
                    then 0 else 1
+  #REDO
   for i in [0..options.rooms]
     w = r options.w / maxRooms, 3
     h = r options.h / maxRooms, 3
