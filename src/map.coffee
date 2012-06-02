@@ -11,7 +11,7 @@ exports.create = (options = {}) ->
     for y in [0..options.h]
       m[x][y] = if x in [0,options.w] or
                    y in [0,options.h]
-                   then 1 else 0
+                   then 0 else 1
   for i in [0..options.rooms]
     w = r options.w / maxRooms
     h = r options.h / maxRooms
@@ -21,7 +21,6 @@ exports.create = (options = {}) ->
     y = r options.h
     for j in [0..w]
       for k in [0..h]
-        m[j+x][y+k] = 2
-    
+        if m[j+x] and m[j+x][y+k] then m[j+x][y+k] = 2
   options.map ?= m
   return options

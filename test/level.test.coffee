@@ -26,7 +26,7 @@ if map.create().rooms < 1
 if map.create({rooms:400}).rooms != 400
   throw new Error "override rooms not set"
 
-if map.create().map[0][0] != 1
+if map.create().map[0][0] != 0
   throw new Error "default map not set"
 
 if map.create({map:[[0]]}).map[0][0] != 0
@@ -40,12 +40,12 @@ for xo,xi in m.map
   l = ""
   for yo,yi in xo
     switch yo
-      when 1
-        l += "-"
       when 0
-        l += "#"
-      when 2
+        l += "*"
+      when 1
         l += "."
+      when 2 
+        l += "#"
 console.log l
 
 
