@@ -1,11 +1,11 @@
 process.stdout.write '\u001B[2J\u001B[0;0f'
  
 level = require("../src/level.coffee")
-if !level? or !level.create? 
+if !level? or !level.create?
   throw new Error "cannot find level"
 
 map = require("../src/map.coffee")
-if !map? or !map.create? 
+if !map? or !map.create?
   throw new Error "cannot find map"
 
 if map.create().w != 80
@@ -17,11 +17,11 @@ if map.create().h != 60
 if map.create({w:120}).w != 120
   throw new Error "override width not set"
 
-if map.create({h:80}).h != 80 
+if map.create({h:80}).h != 80
   throw new Error "override height not set"
 
 if map.create().rooms < 1
-  throw new Error "default rooms not set" 
+  throw new Error "default rooms not set"
 
 if map.create({rooms:400}).rooms != 400
   throw new Error "override rooms not set"
@@ -39,8 +39,9 @@ for xo,xi in m.map
   console.log l
   l = ""
   for yo,yi in xo
-    l = l + yo
+    l = l + if yo == 0 then "." else "X"
 console.log l
+
 
 process.exit()
 
