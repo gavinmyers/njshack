@@ -32,7 +32,7 @@ if map.create().map[0][0] != 0
 if map.create({map:[[0]]}).map[0][0] != 0
   throw new Error "override map not set"
 
-for i in [0..100]
+for i in [0..10]
   m = map.create({w:30,h:50})
   #rotate monitor 90d
   l = ""
@@ -47,6 +47,10 @@ for i in [0..100]
           l += "."
         when 2
           l += "#"
+        when 3
+          l += ">"
+        when 4
+          l += "<"
   console.log l
 
 

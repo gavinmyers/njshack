@@ -17,8 +17,11 @@ exports.create = (options = {}) ->
     h = r options.h / maxRooms, 3
     x = r options.w - 4
     y = r options.h - 4
-    for j in [0..w]
-      for k in [0..h]
-        if m[j+x] and m[j+x][y+k] then m[j+x][y+k] = 2
+    for j in [1..w]
+      for k in [1..h]
+        if j+x < options.w and y+k < options.h
+        then m[j+x][y+k] = 2
+    if i == 0 then m[x+1][y+1] = 3
+    if i == options.rooms then m[x+1][y+1] = 4
   options.map ?= m
   return options
