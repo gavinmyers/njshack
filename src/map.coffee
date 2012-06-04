@@ -1,6 +1,4 @@
 exports.create = (opt = {}) ->
-  opt.w ?= 80
-  opt.h ?= 60
   opt.calc ?= []
   
   opt.calc.room ?= (width,height) ->
@@ -37,6 +35,8 @@ exports.create = (opt = {}) ->
       if i == rooms then m[r w,x][r h,y] = 4
     return m
   
+  opt.w ?= 80
+  opt.h ?= 60
   opt.rooms ?= opt.calc.room opt.w, opt.h
   opt.map ?= opt.calc.area opt.w, opt.h, opt.rooms
   return opt

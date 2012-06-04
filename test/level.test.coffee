@@ -32,6 +32,12 @@ if map.create().map[0][0] != 0
 if map.create({map:[[999]]}).map[0][0] != 999
   throw new Error "override map not set"
 
+if map.create({calc:{room:(w,h)-> return 99}}).rooms != 99
+  throw new Error "override room calc not set"
+
+if map.create({calc:{area:(w,h,r)-> return [[42]]}}).map[0][0] != 42
+  throw new Error "override area calc not set"
+
 for i in [0..10]
   m = map.create({w:30,h:50})
   #rotate monitor 90d
