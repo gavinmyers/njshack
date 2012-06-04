@@ -3,7 +3,8 @@ exports.create = (options = {}) ->
     return Math.floor(Math.random() * Math.floor(n)) + v
   options.w ?= 80
   options.h ?= 60
-  maxRooms = options.w * options.h / 500
+  maxRooms = options.w * options.h
+  maxRooms = maxRooms * 0.08 
   options.rooms ?= r maxRooms, 3
   m = []
   for x in [0..options.w]
@@ -24,8 +25,8 @@ exports.create = (options = {}) ->
     if y+4 > options.h then y = y - 4
     x ?= 1
     y ?= 1
-    for j in [1..w]
-      for k in [1..h]
+    for j in [0..w]
+      for k in [0..h]
         if 1 == m[j+x][y+k]
           m[j+x][y+k] = 2
     if i == 0 then m[r w,x][r h,y] = 3
