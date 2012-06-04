@@ -29,13 +29,14 @@ if map.create({rooms:400}).rooms != 400
 if map.create().map[0][0] != 0
   throw new Error "default map not set"
 
-if map.create({map:[[0]]}).map[0][0] != 0
+if map.create({map:[[999]]}).map[0][0] != 999
   throw new Error "override map not set"
 
 for i in [0..10]
   m = map.create({w:30,h:50})
   #rotate monitor 90d
   l = ""
+  t = ""
   for xo,xi in m.map
     console.log l
     l = ""
@@ -48,11 +49,15 @@ for i in [0..10]
         when 2
           l += "#"
         when 3
-          l += ">"
+          l += "U"
         when 4
-          l += "<"
+          l += "D"
+    t += l
   console.log l
+  if -1 == t.indexOf "D"
+    throw new Error "no down"
 
-
+  if -1 == t.indexOf "U"
+    throw new Error "no up"
 process.exit()
 

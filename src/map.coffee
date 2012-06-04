@@ -16,13 +16,19 @@ exports.create = (options = {}) ->
   for i in [0..options.rooms]
     w = r options.w / maxRooms, 3
     h = r options.h / maxRooms, 3
-    x = r options.w - 4
-    y = r options.h - 4
+    x = r options.w
+    y = r options.h
+    if x+w > options.w then w = 3
+    if y+h > options.h then h = 3
+    if x+4 > options.w then x = x - 4
+    if y+4 > options.h then y = y - 4
+    x ?= 1
+    y ?= 1
     for j in [1..w]
       for k in [1..h]
-        if j+x < options.w and y+k < options.h
-        then m[j+x][y+k] = 2
-    if i == 0 then m[x+1][y+1] = 3
-    if i == options.rooms then m[x+1][y+1] = 4
+        if 1 == m[j+x][y+k]
+          m[j+x][y+k] = 2
+    if i == 0 then m[r w,x][r h,y] = 3
+    if i == options.rooms then m[r w,x][r h,y] = 4
   options.map ?= m
   return options
