@@ -8,7 +8,6 @@ exports.create = (opt = {}) ->
     mr = width * height
     mr = mr * 0.01
     mr = r mr,3
-    console.log mr
     return mr
 
   opt.calc.area ?= (width,height,rooms) ->
