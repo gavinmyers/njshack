@@ -44,7 +44,7 @@ for i in [0..10]
   l = ""
   t = ""
   for xo,xi in m.map
-    #console.log l
+    console.log l
     l = ""
     for yo,yi in xo
       switch yo
@@ -59,7 +59,7 @@ for i in [0..10]
         when 4
           l += "D"
     t += l
-  #console.log l
+  console.log l
   if -1 == t.indexOf "D"
     throw new Error "no down"
 

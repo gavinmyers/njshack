@@ -1,14 +1,17 @@
 exports.create = (opt = {}) ->
+  r = (n, v = 0) ->
+    return Math.floor(Math.random() * Math.floor(n)) + v
+  
   opt.calc ?= []
   
   opt.calc.room ?= (width,height) ->
     mr = width * height
-    mr = mr * 0.08
+    mr = mr * 0.01
+    mr = r mr,3
+    console.log mr
     return mr
 
   opt.calc.area ?= (width,height,rooms) ->
-    r = (n, v = 0) ->
-      return Math.floor Math.random() * Math.floor n + v
     m = []
     for x in [0..width]
       m[x] = []
@@ -16,9 +19,9 @@ exports.create = (opt = {}) ->
         m[x][y] = if x in [0,width] or
                      y in [0,height]
                      then 0 else 1
-    for i in [0..rooms]
-      w = r width / rooms, 3
-      h = r height / opt.rooms, 3
+    for i in [1..rooms]
+      w = r width, 3
+      h = r height, 3
       x = r width
       y = r height
       if x+w > width then w = 3
@@ -27,11 +30,11 @@ exports.create = (opt = {}) ->
       if y+4 > height then y = y - 4
       x ?= 1
       y ?= 1
-      for j in [0..w]
-        for k in [0..h]
+      for j in [1..w]
+        for k in [1..h]
           if 1 == m[j+x][y+k]
             m[j+x][y+k] = 2
-      if i == 0 then m[r w,x][r h,y] = 3
+      if i == 1 then m[r w,x][r h,y] = 3
       if i == rooms then m[r w,x][r h,y] = 4
     return m
   
