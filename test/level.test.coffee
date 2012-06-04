@@ -14,25 +14,25 @@ if map.create().w != 80
 if map.create().h != 60
   throw new Error "default height not set"
 
-if map.create({w:120}).w != 120
+if map.create({w:7331}).w != 7331
   throw new Error "override width not set"
 
-if map.create({h:80}).h != 80
+if map.create({h:1337}).h != 1337
   throw new Error "override height not set"
 
 if map.create().rooms < 1
   throw new Error "default rooms not set"
 
-if map.create({rooms:400}).rooms != 400
+if map.create({rooms:1024}).rooms != 1024
   throw new Error "override rooms not set"
 
 if map.create().map[0][0] != 0
   throw new Error "default map not set"
 
-if map.create({map:[[999]]}).map[0][0] != 999
+if map.create({map:[[512]]}).map[0][0] != 512
   throw new Error "override map not set"
 
-if map.create({calc:{room:(w,h)-> return 99}}).rooms != 99
+if map.create({calc:{room:(w,h)-> return -64}}).rooms != -64
   throw new Error "override room calc not set"
 
 if map.create({calc:{area:(w,h,r)-> return [[42]]}}).map[0][0] != 42
