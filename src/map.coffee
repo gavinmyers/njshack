@@ -2,7 +2,6 @@ r = (n, v = 0) ->
   return Math.floor(Math.random() * Math.floor(n)) + v
 
 exports.defaultW = 80
-
 exports.defaultH = 60
 
 exports.defaultRoomCalc = (width, height) ->
