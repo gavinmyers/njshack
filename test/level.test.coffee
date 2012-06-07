@@ -66,6 +66,22 @@ for i in [0..100]
   if -1 == t.indexOf "U"
     throw new Error "no up"
 
+map.defaultW = 30
+if map.create().w != 30
+  throw new Error "override defaults not set"
+
+map.defaultH = 50
+if map.create().h != 50
+  throw new Error "override defaults not set"
+
+map.defaultRoomCalc = (w,h)-> return -128
+if map.create().rooms != -128
+  throw new Error "override default room calc not set"
+
+map.defaultAreaCalc = (w,h,r)-> return [[1024]]
+if map.create().map[0][0] != 1024
+  throw new Error "override default area calc not set"
+
 console.log ":)"
 process.exit()
 
