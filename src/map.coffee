@@ -38,11 +38,10 @@ exports.defaultAreaCalc ?= (width,height,rooms) ->
   return m
 
 exports.create = (opt = {}) ->
-  opt.calc ?= []
-  opt.calc.room ?= exports.defaultRoomCalc
-  opt.calc.area ?= exports.defaultAreaCalc
+  opt.roomCalc ?= exports.defaultRoomCalc
+  opt.areaCalc ?= exports.defaultAreaCalc
   opt.w ?= exports.defaultW
   opt.h ?= exports.defaultH
-  opt.rooms ?= opt.calc.room opt.w, opt.h
-  opt.map ?= opt.calc.area opt.w, opt.h, opt.rooms
+  opt.rooms ?= opt.roomCalc opt.w, opt.h
+  opt.map ?= opt.areaCalc opt.w, opt.h, opt.rooms
   return opt

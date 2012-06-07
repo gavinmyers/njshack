@@ -32,10 +32,10 @@ if map.create().map[0][0] != 0
 if map.create({map:[[512]]}).map[0][0] != 512
   throw new Error "override map not set"
 
-if map.create({calc:{room:(w,h)-> return -64}}).rooms != -64
+if map.create({roomCalc:(w,h)-> return -64}).rooms != -64
   throw new Error "override room calc not set"
 
-if map.create({calc:{area:(w,h,r)-> return [[42]]}}).map[0][0] != 42
+if map.create({areaCalc:(w,h,r)-> return [[42]]}).map[0][0] != 42
   throw new Error "override area calc not set"
 
 for i in [0..100]
@@ -84,5 +84,4 @@ if map.create().map[0][0] != 1024
 
 process.stdout.write '\u001B[2J\u001B[0;0f'
 console.log ":)"
-process.exit()
 
