@@ -38,7 +38,7 @@ if map.create({calc:{room:(w,h)-> return -64}}).rooms != -64
 if map.create({calc:{area:(w,h,r)-> return [[42]]}}).map[0][0] != 42
   throw new Error "override area calc not set"
 
-for i in [0..10]
+for i in [0..100]
   m = map.create({w:30,h:50})
   #rotate monitor 90d
   l = ""
