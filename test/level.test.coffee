@@ -82,6 +82,7 @@ map.defaultAreaCalc = (w,h,r)-> return [[1024]]
 if map.create().map[0][0] != 1024
   throw new Error "override default area calc not set"
 
+process.stdout.write '\u001B[2J\u001B[0;0f'
 console.log ":)"
 process.exit()
 
